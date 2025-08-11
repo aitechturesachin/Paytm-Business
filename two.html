@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .loan-provider {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .loan-provider-text {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .company-logo {
+            color: #2196F3;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .help-btn {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .main-content {
+            padding: 30px 20px;
+        }
+        
+        .loan-amount {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .amount-display {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .rupee {
+            color: #8e24aa;
+        }
+        
+        .loan-number {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .copy-icon {
+            background: #e3f2fd;
+            color: #2196F3;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .loan-details-btn {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .status-section {
+            margin: 30px 0;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .status-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .check-icon {
+            color: #4caf50;
+            font-size: 18px;
+        }
+        
+        .paid-text {
+            color: #4caf50;
+            font-weight: 500;
+        }
+        
+        .due-text {
+            color: #4caf50;
+        }
+        
+        .pay-more-btn {
+            background: white;
+            border: 2px solid #2196F3;
+            color: #2196F3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .upload-section {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .upload-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .upload-icon {
+            background: #ff9800;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .upload-text h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .upload-text p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .upload-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .repayment-history {
+            margin-top: 40px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .history-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .day-info {
+            min-width: 80px;
+            margin-right: 20px;
+        }
+        
+        .day-number {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .day-date {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .payment-info {
+            flex: 1;
+        }
+        
+        .payment-status {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .completed {
+            color: #333;
+        }
+        
+        .paid {
+            color: #333;
+        }
+        
+        .pending {
+            color: #ff9800;
+        }
+        
+        .status-icon {
+            font-size: 18px;
+        }
+        
+        .success {
+            color: #4caf50;
+        }
+        
+        .warning {
+            color: #ff9800;
+        }
+        
+        .expand-icon {
+            color: #ccc;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 45px;
+            top: 30px;
+            bottom: -15px;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        
+        .history-item:last-child .timeline-line {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-btn" onclick="goBack()">←</button>
+            <div class="loan-provider">
+                <div class="loan-provider-text">LOAN PROVIDED BY</div>
+                <div class="company-logo">muthoot FINCORP</div>
+            </div>
+            <a href="#" class="help-btn">Help</a>
+        </div>
+        
+        <div class="main-content">
+            <div class="loan-amount">
+                <div class="amount-display">
+                    <span class="rupee">₹</span> 26,436 / <span class="rupee">₹</span>71,160 ⭕
+                </div>
+                <div class="loan-number">
+                    Loan A/C No: MFLPAYTMFOL000005520923
+                    <div class="copy-icon" onclick="copyLoanNumber()">📋</div>
+                </div>
+            </div>
+            
+            <a href="#" class="loan-details-btn">Loan details</a>
+            
+            <div class="status-section">
+                <div class="status-item">
+                    <div class="status-text">
+                        <span class="check-icon">✓</span>
+                        <span class="paid-text">Total Dues Paid</span>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <div class="status-text">
+                        <span class="due-text">Next due on 10th Aug</span>
+                    </div>
+                    <button class="pay-more-btn" onclick="payMore()">Pay More</button>
+                </div>
+            </div>
+            
+            <div class="upload-section">
+                <div class="upload-content">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">
+                        <h4>Upload Business Proof</h4>
+                        <p>Benefits on your next loan</p>
+                    </div>
+                </div>
+                <button class="upload-btn" onclick="uploadDocument()">Upload Now</button>
+            </div>
+            
+            <div class="repayment-history">
+                <h3 class="section-title">Repayment History</h3>
+                
+                <div class="history-item">
+                    <div class="day-info">
+                        <div class="day-number">Day 270</div>
+                        <div class="day-date">26th Jan 2025</div>
+                    </div>
+                    <div class="payment-info">
+                        <div class="payment-status completed">Loan repayment complete</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="day-info">
+                        <div class="day-number">
+                            Day 101 <span class="status-icon success">✓</span>
+                        </div>
+                        <div class="day-date">9th Aug 2025</div>
+                    </div>
+                    <div class="payment-info">
+                        <div class="payment-status paid">₹266 paid</div>
+                    </div>
+                    <div class="expand-icon" onclick="toggleDetails(this)">⌄</div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="day-info">
+                        <div class="day-number">
+                            Day 100 <span class="status-icon success">✓</span>
+                        </div>
+                        <div class="day-date">8th Aug 2025</div>
+                    </div>
+                    <div class="payment-info">
+                        <div class="payment-status paid">₹532 paid</div>
+                    </div>
+                    <div class="expand-icon" onclick="toggleDetails(this)">⌄</div>
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="day-info">
+                        <div class="day-number">
+                            Day 99 <span class="status-icon warning">⚠</span>
+                        </div>
+                        <div class="day-date">7th Aug 2025</div>
+                    </div>
+                    <div class="payment-info">
+                        <div class="payment-status pending">₹0 paid</div>
+                    </div>
+                    <div class="expand-icon" onclick="toggleDetails(this)">⌄</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                alert('No previous page to go back to');
+            }
+        }
+
+        function copyLoanNumber() {
+            const loanNumber = "MFLPAYTMFOL000005520923";
+            navigator.clipboard.writeText(loanNumber).then(function() {
+                alert('Loan number copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = loanNumber;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Loan number copied to clipboard!');
+            });
+        }
+
+        function payMore() {
+            alert('Redirecting to payment page...');
+            // In a real app, this would navigate to the payment interface
+        }
+
+        function uploadDocument() {
+            alert('Opening document upload interface...');
+            // In a real app, this would open file picker or camera
+        }
+
+        function toggleDetails(element) {
+            const isExpanded = element.textContent === '⌃';
+            element.textContent = isExpanded ? '⌄' : '⌃';
+            
+            // In a real app, this would show/hide additional payment details
+            if (!isExpanded) {
+                alert('Showing payment details...');
+            }
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button, .help-btn, .loan-details-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-1px)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+                
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+            });
+
+            // Animate the progress circle
+            const amountDisplay = document.querySelector('.amount-display');
+            amountDisplay.addEventListener('click', function() {
+                this.style.animation = 'pulse 0.6s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Add CSS animation for pulse effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
