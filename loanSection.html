@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Merchant Loan Dashboard</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f3f5;
+      color: #333;
+    "
+  >
+    <!-- Container for center alignment on desktop -->
+    <div
+      style="
+        max-width: 800px;
+        margin: 40px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <div
+        style="
+          background-color: white;
+          padding: 24px 32px;
+          border-bottom: 1px solid #e0e0e0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <h2
+          style="margin: 0; font-size: 22px; display: flex; align-items: center"
+        >
+          <span style="margin-right: 10px">💰</span>Merchant Loan
+        </h2>
+        <a
+          href="#"
+          style="font-size: 14px; color: #007bff; text-decoration: none"
+          >Help</a
+        >
+      </div>
+
+      <!-- Tabs -->
+      <div style="display: flex; border-bottom: 1px solid #e0e0e0">
+        <div
+          style="
+            flex: 1;
+            text-align: center;
+            padding: 14px 0;
+            background-color: white;
+            font-weight: bold;
+            border-bottom: 3px solid #007bff;
+          "
+        >
+          Active Account
+        </div>
+        <div
+          style="
+            flex: 1;
+            text-align: center;
+            padding: 14px 0;
+            background-color: #f8f9fa;
+            color: #888;
+          "
+        >
+          Closed Account
+        </div>
+      </div>
+
+      <!-- Loan Info Section -->
+      <div style="padding: 32px">
+        <!-- Loan Summary Row -->
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <!-- Bank Logo -->
+          <div style="flex: 1">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Muthoot_Fincorp_Logo.svg/320px-Muthoot_Fincorp_Logo.svg.png"
+              alt="Muthoot Fincorp"
+              style="height: 24px"
+            />
+          </div>
+
+          <!-- Loan Amount -->
+          <div style="flex: 1; text-align: right">
+            <div style="font-size: 16px; color: #777">Loan amount</div>
+            <div style="font-size: 24px; font-weight: bold">
+              ₹64,000
+              <a href="/EMIDateToDate.html" class="nav-sublink"
+                ><i class="fas fa-cog">></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dues Info -->
+        <div
+          style="
+            margin-top: 30px;
+            background-color: #eafbee;
+            padding: 16px 20px;
+            border-radius: 8px;
+            color: #2e7d32;
+            font-size: 16px;
+          "
+        >
+          ✅ Total Dues Paid<br />
+          <span style="color: #007bff; font-weight: bold"
+            >NEXT DUE ON 9TH AUG</span
+          >
+        </div>
+
+        <!-- Pay More Button -->
+        <div style="margin-top: 24px; text-align: right">
+          <button
+            style="
+              padding: 12px 28px;
+              background-color: #007bff;
+              color: white;
+              font-size: 16px;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+            "
+          >
+            Pay More
+          </button>
+        </div>
+
+        <!-- Loan Account Number -->
+        <div style="margin-top: 24px; font-size: 14px; color: #666">
+          Loan A/C No -
+          <span style="user-select: all">MFLPAYTMFOL000005520923</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
