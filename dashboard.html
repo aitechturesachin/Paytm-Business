@@ -231,6 +231,9 @@
         transform: rotate(180deg);
       }
 
+      /* Remove this old rule or its 200px cap if present */
+      /* .nav-submenu.open { max-height: 200px; } */
+
       .nav-submenu {
         max-height: 0;
         overflow: hidden;
@@ -811,28 +814,95 @@
     <!-- ✅ Sidebar Toggle Script -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main-content");
+        const footer = document.querySelector(".footer");
+        const sidebarToggleBtn = document.getElementById("sidebarToggle");
+
+        // 1) Sidebar hamburger toggle
+        sidebarToggleBtn.addEventListener("click", () => {
+          const isMobile = window.matchMedia("(max-width: 768px)").matches;
+          if (isMobile) {
+            sidebar.classList.toggle("mobile-open");
+          } else {
+            sidebar.classList.toggle("collapsed");
+            mainContent.classList.toggle("expanded");
+            footer.classList.toggle("expanded");
+          }
+        });
+
+        // 2) Submenu toggle (expand/collapse with dynamic height)
         const expandableItems = document.querySelectorAll(
           ".nav-item.expandable"
         );
 
+        const closeAllSubmenus = () => {
+          document.querySelectorAll(".nav-item.expandable").forEach((item) => {
+            const submenu = item.querySelector(".nav-submenu");
+            if (!submenu) return;
+            submenu.classList.remove("open");
+            submenu.style.maxHeight = null;
+            item.classList.remove("expanded");
+            const toggleBtn = item.querySelector(".nav-link");
+            if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
+          });
+        };
+
         expandableItems.forEach((item) => {
           const toggleBtn = item.querySelector(".nav-link");
           const submenu = item.querySelector(".nav-submenu");
+          if (!toggleBtn || !submenu) return;
 
-          toggleBtn.addEventListener("click", () => {
+          // make it accessible
+          toggleBtn.setAttribute("role", "button");
+          toggleBtn.setAttribute("tabindex", "0");
+          toggleBtn.setAttribute("aria-expanded", "false");
+
+          const toggleSubmenu = () => {
             const isOpen = submenu.classList.contains("open");
 
-            document
-              .querySelectorAll(".nav-submenu.open")
-              .forEach((openMenu) => {
-                openMenu.classList.remove("open");
-                openMenu.parentElement.classList.remove("expanded");
-              });
+            // close others first
+            closeAllSubmenus();
 
             if (!isOpen) {
               submenu.classList.add("open");
               item.classList.add("expanded");
+              submenu.style.maxHeight = submenu.scrollHeight + "px";
+              toggleBtn.setAttribute("aria-expanded", "true");
             }
+          };
+
+          toggleBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            toggleSubmenu();
+          });
+
+          // keyboard support
+          toggleBtn.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleSubmenu();
+            }
+          });
+        });
+
+        // Optional: close sidebar on mobile when clicking outside
+        document.addEventListener("click", (e) => {
+          const isMobile = window.matchMedia("(max-width: 768px)").matches;
+          if (
+            isMobile &&
+            sidebar.classList.contains("mobile-open") &&
+            !sidebar.contains(e.target) &&
+            !sidebarToggleBtn.contains(e.target)
+          ) {
+            sidebar.classList.remove("mobile-open");
+          }
+        });
+
+        // Recompute submenu height on resize (so animations stay correct)
+        window.addEventListener("resize", () => {
+          document.querySelectorAll(".nav-submenu.open").forEach((submenu) => {
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
           });
         });
       });

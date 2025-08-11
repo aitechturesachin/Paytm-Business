@@ -1,511 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loan Repayment App</title>
-</head>
-<body>
-    <div style="
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  </head>
+  <body>
+    <div
+      style="
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Arial, sans-serif;
         background-color: #f8f9fa;
         color: #333333;
         margin: 0;
         padding: 0;
         min-height: 100vh;
-    ">
-        <!-- Header -->
-        <div style="
+      "
+    >
+      <!-- Header -->
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #ffffff;
+          border-bottom: 1px solid #e9ecef;
+        "
+      >
+        <div style="font-size: 18px; font-weight: bold">₹ 26,170</div>
+        <div style="font-size: 18px; color: #666">₹ 2,00,000</div>
+        <div
+          style="
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e9ecef;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e9ecef;
-        ">
-            <div style="font-size: 18px; font-weight: bold;">₹ 26,170</div>
-            <div style="font-size: 18px; color: #666;">₹ 71,160</div>
-            <div style="
-                width: 20px;
-                height: 20px;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+          "
+        >
+          ?
+        </div>
+      </div>
+
+      <!-- Loan Details -->
+      <div style="padding: 0 20px">
+        <div style="font-size: 12px; color: #666; margin-bottom: 10px">
+          Loan A/C No: MFLEPAYTMLO00000552023
+        </div>
+        <div style="font-size: 14px; color: #4a9eff; margin-bottom: 20px">
+          Loan details
+        </div>
+      </div>
+
+      <!-- Total Dues Section -->
+      <div
+        style="
+          background-color: #ffffff;
+          margin: 0 20px;
+          padding: 20px;
+          border-radius: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <div>
+          <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px">
+            Total Dues Paid
+            <span
+              style="
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-color: #22c55e;
                 border-radius: 50%;
-                background-color: #e9ecef;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-                color: #666;
-            ">?</div>
+                margin-left: 8px;
+                position: relative;
+              "
+            >
+              <span
+                style="
+                  position: absolute;
+                  top: 2px;
+                  left: 5px;
+                  font-size: 10px;
+                  color: white;
+                "
+                >✓</span
+              >
+            </span>
+          </div>
+          <div style="font-size: 12px; color: #666">Next due on 9th Aug</div>
         </div>
+        <button
+          style="
+            background-color: #4a9eff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+          "
+          onclick="payMore()"
+        >
+          Pay More
+        </button>
+      </div>
 
-        <!-- Loan Details -->
-        <div style="padding: 0 20px;">
-            <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
-                Loan A/C No: MFLEPAYTMLO00000552023
+      <!-- Upload Business Proof -->
+      <div
+        style="
+          background-color: #ffffff;
+          margin: 0 20px;
+          padding: 20px;
+          border-radius: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <div
+            style="
+              width: 40px;
+              height: 40px;
+              background-color: #e3f2fd;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 15px;
+            "
+          >
+            📄
+          </div>
+          <div>
+            <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px">
+              Upload Business Proof
             </div>
-            <div style="font-size: 14px; color: #4a9eff; margin-bottom: 20px;">
-                Loan details
+            <div style="font-size: 12px; color: #666">
+              Benefits on your next loan
             </div>
+          </div>
         </div>
+        <button
+          style="
+            background-color: transparent;
+            color: #4a9eff;
+            border: 1px solid #4a9eff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+          "
+          onclick="uploadProof()"
+        >
+          Upload Now
+        </button>
+      </div>
 
-        <!-- Total Dues Section -->
-        <div style="
-            background-color: #ffffff;
-            margin: 0 20px;
-            padding: 20px;
-            border-radius: 12px;
+      <!-- Repayment History -->
+      <div style="padding: 0 20px">
+        <div
+          style="
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        ">
-            <div>
-                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">
-                    Total Dues Paid
-                    <span style="
-                        display: inline-block;
-                        width: 16px;
-                        height: 16px;
-                        background-color: #22c55e;
-                        border-radius: 50%;
-                        margin-left: 8px;
-                        position: relative;
-                    ">
-                        <span style="
-                            position: absolute;
-                            top: 2px;
-                            left: 5px;
-                            font-size: 10px;
-                            color: white;
-                        ">✓</span>
-                    </span>
-                </div>
-                <div style="font-size: 12px; color: #666;">Next due on 9th Aug</div>
-            </div>
-            <button style="
-                background-color: #4a9eff;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-size: 14px;
+          "
+        >
+          <h2 style="font-size: 18px; margin: 0">Repayment History</h2>
+          <div style="display: flex; gap: 15px">
+            <div
+              style="
+                width: 24px;
+                height: 24px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 cursor: pointer;
-            " onclick="payMore()">Pay More</button>
+                background-color: #fff;
+              "
+            >
+              ≡
+            </div>
+            <div
+              style="
+                width: 24px;
+                height: 24px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: #fff;
+              "
+            >
+              ✉
+            </div>
+          </div>
         </div>
 
-        <!-- Upload Business Proof -->
-        <div style="
-            background-color: #ffffff;
-            margin: 0 20px;
-            padding: 20px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        ">
-            <div style="display: flex; align-items: center;">
-                <div style="
-                    width: 40px;
-                    height: 40px;
-                    background-color: #e3f2fd;
-                    border-radius: 8px;
+        <!-- Payment Timeline -->
+        <div style="position: relative">
+          <!-- Day 270 -->
+          <div style="display: flex; margin-bottom: 30px; position: relative">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 20px;
+                min-width: 80px;
+              "
+            >
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  background-color: #22c55e;
+                  border-radius: 50%;
+                  margin-bottom: 8px;
+                "
+              ></div>
+              <div style="font-size: 14px; font-weight: bold">Day 270</div>
+              <div style="font-size: 10px; color: #666">25th Jan 2026</div>
+            </div>
+            <div
+              style="
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                flex: 1;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div style="font-size: 16px; font-weight: bold">
+                Loan repayment complete
+              </div>
+            </div>
+          </div>
+
+          <!-- Current Position Indicator -->
+          <div
+            style="
+              position: absolute;
+              left: 35px;
+              background-color: #22c55e;
+              color: white;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 10px;
+              font-weight: bold;
+            "
+          >
+            You are here
+          </div>
+
+          <!-- Day 100 -->
+          <div style="display: flex; margin-bottom: 30px; margin-top: 40px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 20px;
+                min-width: 80px;
+              "
+            >
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  background-color: #22c55e;
+                  border-radius: 50%;
+                  margin-bottom: 8px;
+                "
+              ></div>
+              <div style="font-size: 14px; font-weight: bold">Day 100</div>
+              <div style="font-size: 10px; color: #666">8th Aug 2025</div>
+            </div>
+            <div
+              style="
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                flex: 1;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 15px;
+                "
+              >
+                <div style="font-size: 16px; font-weight: bold">₹532 paid</div>
+                <div style="font-size: 16px; font-weight: bold">₹532</div>
+              </div>
+
+              <div id="day100Details" style="display: none">
+                <div
+                  style="
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 15px;
-                ">
-                    📄
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #e9ecef;
+                  "
+                >
+                  <span>Installment Due</span>
+                  <span>₹266</span>
                 </div>
-                <div>
-                    <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">
-                        Upload Business Proof
-                    </div>
-                    <div style="font-size: 12px; color: #666;">
-                        Benefits on your next loan
-                    </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #e9ecef;
+                  "
+                >
+                  <span>Previous Dues</span>
+                  <span>₹266</span>
                 </div>
-            </div>
-            <button style="
-                background-color: transparent;
-                color: #4a9eff;
-                border: 1px solid #4a9eff;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-size: 14px;
-                cursor: pointer;
-            " onclick="uploadProof()">Upload Now</button>
-        </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #e9ecef;
+                    font-weight: bold;
+                  "
+                >
+                  <span>Repayments</span>
+                  <span>₹532</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #e9ecef;
+                  "
+                >
+                  <span>Automatic Payment</span>
+                  <span>₹266</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #e9ecef;
+                  "
+                >
+                  <span>Automatic Payment</span>
+                  <span>₹266</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    font-weight: bold;
+                  "
+                >
+                  <span>Dues Remaining</span>
+                  <span>₹0</span>
+                </div>
+              </div>
 
-        <!-- Repayment History -->
-        <div style="padding: 0 20px;">
-            <div style="
+              <button
+                style="
+                  background: none;
+                  border: none;
+                  color: #666;
+                  font-size: 12px;
+                  cursor: pointer;
+                  margin-top: 10px;
+                "
+                onclick="toggleDetails('day100Details')"
+              >
+                Dues ▼
+              </button>
+            </div>
+          </div>
+
+          <!-- Day 99 -->
+          <div style="display: flex; margin-bottom: 30px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 20px;
+                min-width: 80px;
+              "
+            >
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  background-color: #f59e0b;
+                  border-radius: 50%;
+                  margin-bottom: 8px;
+                "
+              ></div>
+              <div style="font-size: 14px; font-weight: bold">Day 99</div>
+              <div style="font-size: 10px; color: #666">7th Aug 2025</div>
+            </div>
+            <div
+              style="
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                flex: 1;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-bottom: 20px;
-            ">
-                <h2 style="font-size: 18px; margin: 0;">Repayment History</h2>
-                <div style="display: flex; gap: 15px;">
-                    <div style="
-                        width: 24px;
-                        height: 24px;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        background-color: #fff;
-                    ">≡</div>
-                    <div style="
-                        width: 24px;
-                        height: 24px;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        background-color: #fff;
-                    ">✉</div>
-                </div>
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div style="font-size: 16px; font-weight: bold">₹0 paid</div>
+              <button
+                style="
+                  background: none;
+                  border: none;
+                  color: #666;
+                  font-size: 12px;
+                  cursor: pointer;
+                "
+              >
+                ▼
+              </button>
             </div>
+          </div>
 
-            <!-- Payment Timeline -->
-            <div style="position: relative;">
-                <!-- Day 270 -->
-                <div style="
-                    display: flex;
-                    margin-bottom: 30px;
-                    position: relative;
-                ">
-                    <div style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-right: 20px;
-                        min-width: 80px;
-                    ">
-                        <div style="
-                            width: 12px;
-                            height: 12px;
-                            background-color: #22c55e;
-                            border-radius: 50%;
-                            margin-bottom: 8px;
-                        "></div>
-                        <div style="font-size: 14px; font-weight: bold;">Day 270</div>
-                        <div style="font-size: 10px; color: #666;">25th Jan 2026</div>
-                    </div>
-                    <div style="
-                        background-color: #ffffff;
-                        padding: 15px;
-                        border-radius: 8px;
-                        flex: 1;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    ">
-                        <div style="font-size: 16px; font-weight: bold;">
-                            Loan repayment complete
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Current Position Indicator -->
-                <div style="
-                    position: absolute;
-                    left: 35px;
-                    background-color: #22c55e;
-                    color: white;
-                    padding: 4px 8px;
-                    border-radius: 4px;
-                    font-size: 10px;
-                    font-weight: bold;
-                ">You are here</div>
-
-                <!-- Day 100 -->
-                <div style="
-                    display: flex;
-                    margin-bottom: 30px;
-                    margin-top: 40px;
-                ">
-                    <div style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-right: 20px;
-                        min-width: 80px;
-                    ">
-                        <div style="
-                            width: 12px;
-                            height: 12px;
-                            background-color: #22c55e;
-                            border-radius: 50%;
-                            margin-bottom: 8px;
-                        "></div>
-                        <div style="font-size: 14px; font-weight: bold;">Day 100</div>
-                        <div style="font-size: 10px; color: #666;">8th Aug 2025</div>
-                    </div>
-                    <div style="
-                        background-color: #ffffff;
-                        padding: 15px;
-                        border-radius: 8px;
-                        flex: 1;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    ">
-                        <div style="
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-bottom: 15px;
-                        ">
-                            <div style="font-size: 16px; font-weight: bold;">₹532 paid</div>
-                            <div style="font-size: 16px; font-weight: bold;">₹532</div>
-                        </div>
-                        
-                        <div id="day100Details" style="display: none;">
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                border-bottom: 1px solid #e9ecef;
-                            ">
-                                <span>Installment Due</span>
-                                <span>₹266</span>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                border-bottom: 1px solid #e9ecef;
-                            ">
-                                <span>Previous Dues</span>
-                                <span>₹266</span>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                border-bottom: 1px solid #e9ecef;
-                                font-weight: bold;
-                            ">
-                                <span>Repayments</span>
-                                <span>₹532</span>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                border-bottom: 1px solid #e9ecef;
-                            ">
-                                <span>Automatic Payment</span>
-                                <span>₹266</span>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                border-bottom: 1px solid #e9ecef;
-                            ">
-                                <span>Automatic Payment</span>
-                                <span>₹266</span>
-                            </div>
-                            <div style="
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 0;
-                                font-weight: bold;
-                            ">
-                                <span>Dues Remaining</span>
-                                <span>₹0</span>
-                            </div>
-                        </div>
-                        
-                        <button style="
-                            background: none;
-                            border: none;
-                            color: #666;
-                            font-size: 12px;
-                            cursor: pointer;
-                            margin-top: 10px;
-                        " onclick="toggleDetails('day100Details')">
-                            Dues ▼
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Day 99 -->
-                <div style="
-                    display: flex;
-                    margin-bottom: 30px;
-                ">
-                    <div style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-right: 20px;
-                        min-width: 80px;
-                    ">
-                        <div style="
-                            width: 12px;
-                            height: 12px;
-                            background-color: #f59e0b;
-                            border-radius: 50%;
-                            margin-bottom: 8px;
-                        "></div>
-                        <div style="font-size: 14px; font-weight: bold;">Day 99</div>
-                        <div style="font-size: 10px; color: #666;">7th Aug 2025</div>
-                    </div>
-                    <div style="
-                        background-color: #ffffff;
-                        padding: 15px;
-                        border-radius: 8px;
-                        flex: 1;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    ">
-                        <div style="font-size: 16px; font-weight: bold;">₹0 paid</div>
-                        <button style="
-                            background: none;
-                            border: none;
-                            color: #666;
-                            font-size: 12px;
-                            cursor: pointer;
-                        ">▼</button>
-                    </div>
-                </div>
-
-                <!-- Day 98 -->
-                <div style="
-                    display: flex;
-                    margin-bottom: 30px;
-                ">
-                    <div style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-right: 20px;
-                        min-width: 80px;
-                    ">
-                        <div style="
-                            width: 12px;
-                            height: 12px;
-                            background-color: #22c55e;
-                            border-radius: 50%;
-                            margin-bottom: 8px;
-                        "></div>
-                        <div style="font-size: 14px; font-weight: bold;">Day 98</div>
-                        <div style="font-size: 10px; color: #666;">6th Aug 2025</div>
-                    </div>
-                    <div style="
-                        background-color: #ffffff;
-                        padding: 15px;
-                        border-radius: 8px;
-                        flex: 1;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    ">
-                        <div style="font-size: 16px; font-weight: bold;">₹266 paid</div>
-                        <button style="
-                            background: none;
-                            border: none;
-                            color: #666;
-                            font-size: 12px;
-                            cursor: pointer;
-                        ">▼</button>
-                    </div>
-                </div>
-
-                <!-- Day 97 -->
-                <div style="
-                    display: flex;
-                    margin-bottom: 30px;
-                ">
-                    <div style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-right: 20px;
-                        min-width: 80px;
-                    ">
-                        <div style="
-                            width: 12px;
-                            height: 12px;
-                            background-color: #22c55e;
-                            border-radius: 50%;
-                            margin-bottom: 8px;
-                        "></div>
-                        <div style="font-size: 14px; font-weight: bold;">Day 97</div>
-                        <div style="font-size: 10px; color: #666;">5th Aug 2025</div>
-                    </div>
-                    <div style="
-                        background-color: #ffffff;
-                        padding: 15px;
-                        border-radius: 8px;
-                        flex: 1;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    ">
-                        <div style="font-size: 16px; font-weight: bold;">₹266 paid</div>
-                        <button style="
-                            background: none;
-                            border: none;
-                            color: #666;
-                            font-size: 12px;
-                            cursor: pointer;
-                        ">▼</button>
-                    </div>
-                </div>
+          <!-- Day 98 -->
+          <div style="display: flex; margin-bottom: 30px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 20px;
+                min-width: 80px;
+              "
+            >
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  background-color: #22c55e;
+                  border-radius: 50%;
+                  margin-bottom: 8px;
+                "
+              ></div>
+              <div style="font-size: 14px; font-weight: bold">Day 98</div>
+              <div style="font-size: 10px; color: #666">6th Aug 2025</div>
             </div>
+            <div
+              style="
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div style="font-size: 16px; font-weight: bold">₹266 paid</div>
+              <button
+                style="
+                  background: none;
+                  border: none;
+                  color: #666;
+                  font-size: 12px;
+                  cursor: pointer;
+                "
+              >
+                ▼
+              </button>
+            </div>
+          </div>
+
+          <!-- Day 97 -->
+          <div style="display: flex; margin-bottom: 30px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 20px;
+                min-width: 80px;
+              "
+            >
+              <div
+                style="
+                  width: 12px;
+                  height: 12px;
+                  background-color: #22c55e;
+                  border-radius: 50%;
+                  margin-bottom: 8px;
+                "
+              ></div>
+              <div style="font-size: 14px; font-weight: bold">Day 97</div>
+              <div style="font-size: 10px; color: #666">5th Aug 2025</div>
+            </div>
+            <div
+              style="
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div style="font-size: 16px; font-weight: bold">₹266 paid</div>
+              <button
+                style="
+                  background: none;
+                  border: none;
+                  color: #666;
+                  font-size: 12px;
+                  cursor: pointer;
+                "
+              >
+                ▼
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script>
-        function payMore() {
-            alert('Pay More functionality would open payment interface');
-        }
+      function payMore() {
+        alert("Pay More functionality would open payment interface");
+      }
 
-        function uploadProof() {
-            alert('Upload Business Proof functionality would open file upload');
-        }
+      function uploadProof() {
+        alert("Upload Business Proof functionality would open file upload");
+      }
 
-        function toggleDetails(elementId) {
-            const element = document.getElementById(elementId);
-            const button = element.parentElement.querySelector('button');
-            
-            if (element.style.display === 'none' || element.style.display === '') {
-                element.style.display = 'block';
-                button.textContent = 'Dues ▲';
-            } else {
-                element.style.display = 'none';
-                button.textContent = 'Dues ▼';
+      function toggleDetails(elementId) {
+        const element = document.getElementById(elementId);
+        const button = element.parentElement.querySelector("button");
+
+        if (element.style.display === "none" || element.style.display === "") {
+          element.style.display = "block";
+          button.textContent = "Dues ▲";
+        } else {
+          element.style.display = "none";
+          button.textContent = "Dues ▼";
+        }
+      }
+
+      // Add hover effects to buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            if (
+              this.style.backgroundColor === "rgb(74, 158, 255)" ||
+              this.style.backgroundColor === "#4a9eff"
+            ) {
+              this.style.backgroundColor = "#3b82f6";
             }
-        }
+          });
 
-        // Add hover effects to buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    if (this.style.backgroundColor === 'rgb(74, 158, 255)' || this.style.backgroundColor === '#4a9eff') {
-                        this.style.backgroundColor = '#3b82f6';
-                    }
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    if (this.style.backgroundColor === 'rgb(59, 130, 246)' || this.style.backgroundColor === '#3b82f6') {
-                        this.style.backgroundColor = '#4a9eff';
-                    }
-                });
-            });
+          button.addEventListener("mouseleave", function () {
+            if (
+              this.style.backgroundColor === "rgb(59, 130, 246)" ||
+              this.style.backgroundColor === "#3b82f6"
+            ) {
+              this.style.backgroundColor = "#4a9eff";
+            }
+          });
         });
+      });
     </script>
-</body>
+  </body>
 </html>
