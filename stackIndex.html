@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Logix Dashboard</title>
+    <link rel="stylesheet" href="stackStayle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Stack Logix</h2>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <p class="nav-title">Home</p>
+                    <ul>
+                        <li class="active"><i class="fas fa-chart-pie"></i> Overview</li>
+                        <li><i class="fas fa-plug"></i> Integrations</li>
+                        <li><i class="fas fa-robot"></i> AI Assistant</li>
+                        <li><i class="fas fa-chart-line"></i> Custom Dashboard</li>
+                        <li><i class="fas fa-lightbulb"></i> Auto Insights</li>
+                        <li><i class="fas fa-chart-bar"></i> Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-title">Preferences</p>
+                    <ul>
+                        <li><i class="fas fa-cog"></i> Settings</li>
+                        <li><i class="fas fa-question-circle"></i> Help</li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="user-profile">
+                    <i class="fas fa-bell notification-icon"></i>
+                    <div class="user-avatar">
+                        <img src="https://via.placeholder.com/40" alt="Emmanuel Godinho">
+                        <span>Emmanuel Godinho</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filters Section -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label>Date Filter</label>
+                    <div class="date-inputs">
+                        <input type="date" placeholder="From">
+                        <input type="date" placeholder="To">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Transaction Amount</label>
+                    <select>
+                        <option>0-10K</option>
+                        <option>10K-50K</option>
+                        <option>50K+</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Product</label>
+                    <select>
+                        <option>All Type</option>
+                        <option>Manufacturing</option>
+                        <option>Marketing</option>
+                        <option>Branding</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select>
+                        <option>All</option>
+                        <option>Pending</option>
+                        <option>Delivered</option>
+                        <option>Processing</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Order Quantity</label>
+                    <select>
+                        <option>1-100</option>
+                        <option>101-500</option>
+                        <option>500+</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <section class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">$847,293</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5.1% from last week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Orders</h3>
+                        <div class="stat-value">$2,847</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8.2% from last week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Customers</h3>
+                        <div class="stat-value">12,483</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>7.3% from last week</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Bar Chart</h3>
+                        <select class="time-filter">
+                            <option>Week</option>
+                            <option>Month</option>
+                            <option>Year</option>
+                        </select>
+                    </div>
+                    <div class="chart-value">$242,673</div>
+                    <div class="bar-chart" id="barChart"></div>
+                    <p class="chart-description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.</p>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Funnel Chart</h3>
+                        <select class="time-filter">
+                            <option>Week</option>
+                            <option>Month</option>
+                            <option>Year</option>
+                        </select>
+                    </div>
+                    <div class="funnel-chart" id="funnelChart"></div>
+                    <div class="funnel-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot manufacturing"></span>
+                            <span>Manufacturing</span>
+                            <strong>$30,000</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot marketing"></span>
+                            <span>Marketing</span>
+                            <strong>$35,000</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot branding"></span>
+                            <span>Branding</span>
+                            <strong>$35,000</strong>
+                        </div>
+                    </div>
+                    <p class="chart-description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.</p>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Customer</th>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Order Qty</th>
+                            <th>Order Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Amruta Joshi</td>
+                            <td>100086-CBN</td>
+                            <td>Popcorn seasoning</td>
+                            <td>19</td>
+                            <td>₹ 60</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Arlene McCoy</td>
+                            <td>100086-MRS</td>
+                            <td>Secret Stadium Sauce</td>
+                            <td>10</td>
+                            <td>₹ 80</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Brooklyn Simmons</td>
+                            <td>100086-CBN</td>
+                            <td>White chocolate</td>
+                            <td>150</td>
+                            <td>₹ 100</td>
+                            <td><span class="status processing">Processing</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="stackScript.js"></script>
+</body>
+
+</html>

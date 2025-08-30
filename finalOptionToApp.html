@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your UPI App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: rgba(0, 0, 0, 0.3);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-container {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .upi-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .header-text h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 4px;
+        }
+
+        .know-more {
+            color: #007bff;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .know-more:hover {
+            text-decoration: underline;
+        }
+
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            background: #495057;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #343a40;
+            transform: scale(1.05);
+        }
+
+        .success-check {
+            width: 24px;
+            height: 24px;
+            background: #28a745;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .upi-apps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .upi-app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+        }
+
+        .upi-app:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+        }
+
+        .upi-app.selected {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.2);
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+
+        .gpay-icon {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+        }
+
+        .cred-icon {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .myjio-icon {
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+        }
+
+        .more-icon {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            font-size: 20px;
+        }
+
+        .app-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #495057;
+            text-align: center;
+        }
+
+        .selection-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 24px;
+            height: 24px;
+            background: #2196f3;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+
+        .upi-app.selected .selection-badge {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .proceed-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .proceed-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
+        }
+
+        .proceed-btn:active {
+            transform: translateY(0);
+        }
+
+        .proceed-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .shield-icon {
+            font-size: 18px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .modal-container {
+                margin: 10px;
+            }
+
+            .upi-apps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .modal-header {
+                padding: 16px 20px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .app-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+        }
+
+        /* Animation for modal entrance */
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-container {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(33, 150, 243, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal-overlay"></div>
+
+    <div class="modal-container">
+        <div class="modal-header">
+            <div class="header-left">
+                <div class="upi-logo">UPI</div>
+                <div class="header-text">
+                    <h2>Select Your UPI App</h2>
+                    <a href="#" class="know-more" onclick="showMoreInfo()">Know more</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="success-check">✓</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="upi-apps-grid">
+                <!-- GPay -->
+                <div class="upi-app" onclick="selectApp(this, 'gpay')">
+                    <div class="app-icon gpay-icon">G</div>
+                    <div class="app-label">GPay</div>
+                    <div class="selection-badge">✓</div>
+                </div>
+
+                <!-- CRED -->
+                <div class="upi-app" onclick="selectApp(this, 'cred')">
+                    <div class="app-icon cred-icon">CRED</div>
+                    <div class="app-label">CRED</div>
+                    <div class="selection-badge">✓</div>
+                </div>
+
+                <!-- MyJio -->
+                <div class="upi-app" onclick="selectApp(this, 'myjio')">
+                    <div class="app-icon myjio-icon">Jio</div>
+                    <div class="app-label">MyJio</div>
+                    <div class="selection-badge">✓</div>
+                </div>
+
+                <!-- More -->
+                <div class="upi-app" onclick="selectApp(this, 'more')">
+                    <div class="app-icon more-icon">⋮⋮</div>
+                    <div class="app-label">More</div>
+                    <div class="selection-badge">✓</div>
+                </div>
+            </div>
+
+            <button class="proceed-btn" id="proceedBtn" onclick="proceedWithPayment()" disabled>
+                <span class="shield-icon">🛡️</span>
+                Proceed
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let selectedApp = null;
+
+        function selectApp(element, appName) {
+            // Remove selection from all apps
+            document.querySelectorAll('.upi-app').forEach(app => {
+                app.classList.remove('selected');
+            });
+
+            // Add selection to clicked app
+            element.classList.add('selected');
+            selectedApp = appName;
+
+            // Enable proceed button
+            const proceedBtn = document.getElementById('proceedBtn');
+            proceedBtn.disabled = false;
+
+            // Add ripple effect
+            createRipple(element, event);
+
+            console.log('Selected UPI app:', appName);
+        }
+
+        function createRipple(element, event) {
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            element.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        function proceedWithPayment() {
+            if (!selectedApp) {
+                alert('Please select a UPI app first');
+                return;
+            }
+
+            console.log('Proceeding with payment using:', selectedApp);
+
+            // Simulate payment processing
+            const proceedBtn = document.getElementById('proceedBtn');
+            const originalText = proceedBtn.innerHTML;
+
+            proceedBtn.innerHTML = '<span class="shield-icon">⏳</span> Processing...';
+            proceedBtn.disabled = true;
+
+            setTimeout(() => {
+                switch (selectedApp) {
+                    case 'gpay':
+                        alert('Redirecting to Google Pay...');
+                        // window.open('upi://pay?...', '_self');
+                        break;
+                    case 'cred':
+                        alert('Redirecting to CRED...');
+                        break;
+                    case 'myjio':
+                        alert('Redirecting to MyJio...');
+                        break;
+                    case 'more':
+                        alert('Showing more UPI apps...');
+                        break;
+                    default:
+                        alert('Unknown app selected');
+                }
+
+                // Reset button
+                proceedBtn.innerHTML = originalText;
+                proceedBtn.disabled = false;
+            }, 1500);
+        }
+        function closeModal() {
+            console.log('Closing modal...');
+            // Add closing animation
+            document.querySelector('.modal-container').style.animation = 'modalSlideIn 0.3s ease-out reverse';
+
+            setTimeout(() => {
+                // Check if there's a previous page in history
+                if (document.referrer) {
+                    window.history.back();
+                } else {
+                    // Fallback to main page if no referrer
+                    window.location.href = '/index.html';
+                }
+            }, 300);
+        }
+
+        function showMoreInfo() {
+            console.log('Showing UPI information...');
+            alert('UPI (Unified Payments Interface) is a real-time payment system that allows instant money transfer between bank accounts through mobile applications.');
+        }
+
+        // Auto-select GPay for demo (optional)
+        document.addEventListener('DOMContentLoaded', function () {
+            // Uncomment to auto-select GPay
+            // selectApp(document.querySelector('.upi-app'), 'gpay');
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (event) {
+            const apps = document.querySelectorAll('.upi-app');
+            const currentIndex = Array.from(apps).findIndex(app => app.classList.contains('selected'));
+
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                event.preventDefault();
+                const nextIndex = (currentIndex + 1) % apps.length;
+                selectApp(apps[nextIndex], apps[nextIndex].getAttribute('data-app') || 'app' + nextIndex);
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                event.preventDefault();
+                const prevIndex = currentIndex > 0 ? currentIndex - 1 : apps.length - 1;
+                selectApp(apps[prevIndex], apps[prevIndex].getAttribute('data-app') || 'app' + prevIndex);
+            } else if (event.key === 'Enter' && selectedApp) {
+                event.preventDefault();
+                proceedWithPayment();
+            } else if (event.key === 'Escape') {
+                event.preventDefault();
+                closeModal();
+            }
+        });
+
+        // Touch gestures for mobile
+        let touchStartY = 0;
+        document.addEventListener('touchstart', function (e) {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', function (e) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+
+            // Swipe up to proceed (if app selected)
+            if (diff > 50 && selectedApp) {
+                proceedWithPayment();
+            }
+            // Swipe down to close
+            else if (diff < -100) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
