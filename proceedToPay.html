@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Options - Paytm</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
     <style>
         * {
             margin: 0;
@@ -105,20 +107,20 @@
             font-size: 20px;
         }
 
-        .debit-card-icon {
+        /* .debit-card-icon {
             background: linear-gradient(135deg, #4285f4, #34a853);
             color: white;
-        }
-
+        } */
+/* 
         .net-banking-icon {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
-        }
+        } */
 
-        .upi-icon {
+        /* .upi-icon {
             background: linear-gradient(135deg, #ff9f43, #ff6b6b);
             color: white;
-        }
+        } */
 
         .option-content {
             flex: 1;
@@ -238,18 +240,24 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="company-name">MUTHOOT FINCORP LIMITED</div>
-            <div class="paytm-logo">Paytm</div>
+            <div class="company-name">MUTHOOT FINCORP LIMITED <spna style="color: #00baf2"> Paytm</spna>
+            </div>
+            <!-- <div class="paytm-logo">Paytm</div> -->
         </div>
 
         <div class="payment-title">
-            Select an option to pay <span class="amount-highlight">₹36,923</span>
+            Select an option to pay <span class="amount-highlight">₹ 1,65,752.71</span>
         </div>
 
         <div class="payment-options">
             <!-- Debit Card Option -->
             <div class="payment-option" onclick="selectPaymentOption(this, 'debit-card')">
-                <div class="option-icon debit-card-icon">💳</div>
+                <div class="option-icon debit-card-icon">
+                    <!-- <i class="fa-brands fa-cc-visa"></i> -->
+
+
+                    <img src="visa.png" alt="Visa Logo" style="width:45px; height:45px;">
+                </div>
                 <div class="option-content">
                     <div class="option-title">Debit Card</div>
                     <div class="option-subtitle">
@@ -268,7 +276,7 @@
 
             <!-- Net Banking Option -->
             <div class="payment-option" onclick="selectPaymentOption(this, 'net-banking')">
-                <div class="option-icon net-banking-icon">🏦</div>
+                <div class="option-icon net-banking-icon"><img src="mobile-banking.png" alt="Net Banking Logo" style="width:40px; height:40px;"></div>
                 <div class="option-content">
                     <div class="option-title">Net Banking</div>
                     <div class="option-subtitle">All major banks supported</div>
@@ -280,7 +288,7 @@
 
             <!-- UPI Apps Option -->
             <div class="payment-option" onclick="selectPaymentOption(this, 'upi-apps')">
-                <div class="option-icon upi-icon">📱</div>
+                <div class="option-icon upi-icon"><img src="smartphone.png" alt="UPI Logo" style="width:40px; height:40px;"></div>
                 <div class="option-content">
                     <div class="option-title">Pay Using UPI Apps</div>
                     <div class="option-subtitle">
