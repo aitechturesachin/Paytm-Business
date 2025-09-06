@@ -1,416 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paytm for Business - Login</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
-        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paytm for Business - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .login-card,
+    .info-card {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+    }
+
+    .login-card {
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      color: #00baf2;
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .login-form {
+      text-align: left;
+    }
+
+    .input-group {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 16px 0;
+      border: none;
+      border-bottom: 2px solid #e5e7eb;
+      font-size: 1rem;
+      background: transparent;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-bottom-color: #00baf2;
+    }
+
+    .input-field::placeholder {
+      color: #9ca3af;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .signin-btn {
+      background: #8b9dc3;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .signin-btn:hover {
+      background: #7a8bb8;
+    }
+
+    .forgot-password {
+      color: #00baf2;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .terms {
+      font-size: 0.85rem;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .terms a {
+      color: #00baf2;
+    }
+
+    .qr-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 24px;
+    }
+
+    .qr-text {
+      text-align: left;
+    }
+
+    .create-account {
+      background: #e0f2fe;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .create-link {
+      color: #00baf2;
+      font-weight: 600;
+    }
+
+    /* Right Info Panel */
+    .info-card .title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      text-align: left;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-content h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .feature-content p {
+      font-size: 1rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
       .wrapper {
-        display: flex;
-        flex-direction: row;
-        gap: 32px;
-        width: 100%;
-        max-width: 1200px;
+        flex-direction: column;
       }
 
       .login-card,
       .info-card {
-        flex: 1;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        padding: 40px;
-      }
-
-      .login-card {
-        text-align: center;
-      }
-
-      .logo {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .title {
-        font-size: 1.75rem;
-        font-weight: 600;
-        color: #374151;
-        margin-bottom: 8px;
-        line-height: 1.3;
-      }
-
-      .subtitle {
-        color: #00baf2;
-        font-size: 0.95rem;
-        margin-bottom: 40px;
-        font-weight: 500;
-      }
-
-      .login-form {
-        text-align: left;
-      }
-
-      .input-group {
-        margin-bottom: 24px;
-        position: relative;
-      }
-
-      .input-field {
-        width: 100%;
-        padding: 16px 0;
-        border: none;
-        border-bottom: 2px solid #e5e7eb;
-        font-size: 1rem;
-        background: transparent;
-      }
-
-      .input-field:focus {
-        outline: none;
-        border-bottom-color: #00baf2;
-      }
-
-      .input-field::placeholder {
-        color: #9ca3af;
-      }
-
-      .toggle-password {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-      }
-
-      .note {
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-bottom: 32px;
-        text-align: center;
+        padding: 24px;
       }
 
       .form-actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 24px;
-        gap: 16px;
-      }
-
-      .signin-btn {
-        background: #8b9dc3;
-        color: white;
-        border: none;
-        padding: 14px 24px;
-        border-radius: 25px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex: 1;
-        justify-content: center;
-      }
-
-      .signin-btn:hover {
-        background: #7a8bb8;
-      }
-
-      .forgot-password {
-        color: #00baf2;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-      }
-
-      .terms {
-        font-size: 0.85rem;
-        color: #6b7280;
-        text-align: center;
-        margin-bottom: 32px;
-      }
-
-      .terms a {
-        color: #00baf2;
-      }
-
-      .qr-section {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 20px 0;
-        border-top: 1px solid #e5e7eb;
-        border-bottom: 1px solid #e5e7eb;
-        margin-bottom: 24px;
-      }
-
-      .qr-text {
-        text-align: left;
-      }
-
-      .create-account {
-        background: #e0f2fe;
-        padding: 16px;
-        border-radius: 8px;
-        font-size: 0.95rem;
-      }
-
-      .create-link {
-        color: #00baf2;
-        font-weight: 600;
-      }
-
-      /* Right Info Panel */
-      .info-card .title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 40px;
-      }
-
-      .features {
-        display: flex;
         flex-direction: column;
-        gap: 30px;
-        text-align: left;
       }
+    }
+  </style>
+</head>
 
-      .feature {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-      }
+<body>
+  <div class="wrapper">
+    <!-- Left Login Panel -->
+    <div class="login-card">
+      <div class="logo">
+        <svg width="120" height="60" viewBox="0 0 120 60" fill="none">
+          <text x="0" y="25" font-family="Arial" font-size="20" font-weight="bold" fill="#002970">
+            paytm
+          </text>
+          <text x="0" y="45" font-family="Arial" font-size="12" fill="#002970">
+            for
+          </text>
+          <text x="0" y="58" font-family="Arial" font-size="12" font-weight="bold" fill="#002970">
+            Business
+          </text>
+        </svg>
+      </div>
 
-      .feature-content h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #2c3e50;
-      }
+      <h1 class="title">Login with your Paytm account</h1>
+      <p class="subtitle">Paytm App user? No need to create a new account</p>
 
-      .feature-content p {
-        font-size: 1rem;
-        color: #64748b;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 900px) {
-        .wrapper {
-          flex-direction: column;
-        }
-
-        .login-card,
-        .info-card {
-          padding: 24px;
-        }
-
-        .form-actions {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <!-- Left Login Panel -->
-      <div class="login-card">
-        <div class="logo">
-          <svg width="120" height="60" viewBox="0 0 120 60" fill="none">
-            <text
-              x="0"
-              y="25"
-              font-family="Arial"
-              font-size="20"
-              font-weight="bold"
-              fill="#002970"
-            >
-              paytm
-            </text>
-            <text
-              x="0"
-              y="45"
-              font-family="Arial"
-              font-size="12"
-              fill="#002970"
-            >
-              for
-            </text>
-            <text
-              x="0"
-              y="58"
-              font-family="Arial"
-              font-size="12"
-              font-weight="bold"
-              fill="#002970"
-            >
-              Business
-            </text>
-          </svg>
+      <form class="login-form">
+        <div class="input-group">
+          <input type="text" id="mobile-email" placeholder="Enter your Mobile Number or Email" class="input-field" />
         </div>
 
-        <h1 class="title">Login with your Paytm account</h1>
-        <p class="subtitle">Paytm App user? No need to create a new account</p>
-
-        <form class="login-form">
-          <div class="input-group">
-            <input
-              type="text"
-              id="mobile-email"
-              placeholder="Enter your Mobile Number or Email"
-              class="input-field"
-            />
-          </div>
-
-          <div class="input-group">
-            <input
-              type="password"
-              id="password"
-              placeholder="Paytm Password"
-              class="input-field"
-            />
-            <button type="button" class="toggle-password" id="togglePassword">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                  stroke="#9CA3AF"
-                  stroke-width="2"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                  stroke="#9CA3AF"
-                  stroke-width="2"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <p class="note">
-            <strong>PLEASE NOTE:</strong> Paytm and Paytm for Business Dashboard
-            password are same.
-          </p>
-
-          <div class="form-actions">
-            <button type="submit" class="signin-btn">Sign in Securely</button>
-            <a href="#" class="forgot-password">Forgot Password</a>
-          </div>
-
-          <p class="terms">
-            By signing in, you agree to our <a href="#">privacy policy</a> and
-            <a href="#">terms of use</a>.
-          </p>
-        </form>
-
-        <div class="qr-section">
-          <div class="qr-code"><img src="/" alt="QR Code" /></div>
-          <div class="qr-text">
-            <p><strong>OR Login through QR Code</strong></p>
-            <a href="#" class="qr-link">click here</a>
-          </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Paytm Password" class="input-field" />
+          <button type="button" class="toggle-password" id="togglePassword">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#9CA3AF" stroke-width="2" />
+              <circle cx="12" cy="12" r="3" stroke="#9CA3AF" stroke-width="2" />
+            </svg>
+          </button>
         </div>
 
-        <div class="create-account">
-          <span>New to Paytm?</span>
-          <a href="#" class="create-link">Create an Account</a>
+        <p class="note">
+          <strong>PLEASE NOTE:</strong> Paytm and Paytm for Business Dashboard
+          password are same.
+        </p>
+
+        <div class="form-actions">
+          <button type="submit" class="signin-btn">Sign in Securely</button>
+          <a href="#" class="forgot-password">Forgot Password</a>
+        </div>
+
+        <p class="terms">
+          By signing in, you agree to our <a href="#">privacy policy</a> and
+          <a href="#">terms of use</a>.
+        </p>
+      </form>
+
+      <div class="qr-section">
+        <div class="qr-code"><img src="/" alt="QR Code" /></div>
+        <div class="qr-text">
+          <p><strong>OR Login through QR Code</strong></p>
+          <a href="#" class="qr-link">click here</a>
         </div>
       </div>
 
-      <!-- Right Info Panel -->
-      <div class="info-card">
-        <h1 class="title">Create your<br />Paytm for Business<br />Account</h1>
+      <div class="create-account">
+        <span>New to Paytm?</span>
+        <a href="#" class="create-link">Create an Account</a>
+      </div>
+    </div>
 
-        <div class="features">
-          <div class="feature">
-            <div class="feature-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#00BAF2" />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div class="feature-content">
-              <h3>Instant Activation</h3>
-              <p>
-                Go live instantly with minimal documentation. Integrate our easy
-                APIs or use our no code suite to accept payments in no time.
-              </p>
-            </div>
+    <!-- Right Info Panel -->
+    <div class="info-card">
+      <h1 class="title">Create your<br />Paytm for Business<br />Account</h1>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#00BAF2" />
+              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
-
-          <div class="feature">
-            <div class="feature-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#00BAF2" />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div class="feature-content">
-              <h3>All-in-One Dashboard</h3>
-              <p>
-                Get access to Paytm's Payment Gateway, Payment links, QR code
-                and much more.
-              </p>
-            </div>
+          <div class="feature-content">
+            <h3>Instant Activation</h3>
+            <p>
+              Go live instantly with minimal documentation. Integrate our easy
+              APIs or use our no code suite to accept payments in no time.
+            </p>
           </div>
+        </div>
 
-          <div class="feature">
-            <div class="feature-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#00BAF2" />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div class="feature-content">
-              <h3>Join Millions of Businesses</h3>
-              <p>
-                Paytm is trusted by 20 million businesses, from India's largest
-                unicorns to fledgling startups from across India.
-              </p>
-            </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#00BAF2" />
+              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="feature-content">
+            <h3>All-in-One Dashboard</h3>
+            <p>
+              Get access to Paytm's Payment Gateway, Payment links, QR code
+              and much more.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#00BAF2" />
+              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="feature-content">
+            <h3>Join Millions of Businesses</h3>
+            <p>
+              Paytm is trusted by 20 million businesses, from India's largest
+              unicorns to fledgling startups from across India.
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const togglePassword = document.getElementById('togglePassword');
       const passwordField = document.getElementById('password');
@@ -427,63 +371,64 @@
     });
   </script> -->
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const togglePassword = document.getElementById("togglePassword");
-        const passwordField = document.getElementById("password");
-        const usernameField = document.getElementById("mobile-email");
-        const signinBtn = document.querySelector(".signin-btn");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const togglePassword = document.getElementById("togglePassword");
+      const passwordField = document.getElementById("password");
+      const usernameField = document.getElementById("mobile-email");
+      const signinBtn = document.querySelector(".signin-btn");
 
-        // Disable button by default
-        signinBtn.disabled = true;
-        signinBtn.style.backgroundColor = "#ccc";
-        signinBtn.style.cursor = "not-allowed";
+      // Disable button by default
+      signinBtn.disabled = true;
+      signinBtn.style.backgroundColor = "#ccc";
+      signinBtn.style.cursor = "not-allowed";
 
-        // Show/hide password logic
-        togglePassword.addEventListener("click", function () {
-          const type =
-            passwordField.getAttribute("type") === "password"
-              ? "text"
-              : "password";
-          passwordField.setAttribute("type", type);
-        });
+      // Show/hide password logic
+      togglePassword.addEventListener("click", function () {
+        const type =
+          passwordField.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+        passwordField.setAttribute("type", type);
+      });
 
-        // Validation logic
-        function validateCredentials() {
+      // Validation logic
+      function validateCredentials() {
+        const username = usernameField.value.trim();
+        const password = passwordField.value.trim();
+
+        if (username === "771020486" && password === "Ramsundar486.") {
+          signinBtn.disabled = false;
+          signinBtn.style.backgroundColor = "#007bff"; // blue
+          signinBtn.style.cursor = "pointer";
+        } else {
+          signinBtn.disabled = true;
+          signinBtn.style.backgroundColor = "#ccc";
+          signinBtn.style.cursor = "not-allowed";
+        }
+      }
+
+      // Listen for input on both fields
+      usernameField.addEventListener("input", validateCredentials);
+      passwordField.addEventListener("input", validateCredentials);
+
+      // Submit logic
+      document
+        .querySelector(".login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
           const username = usernameField.value.trim();
           const password = passwordField.value.trim();
 
-          if (username === "admin" && password === "Admin@123") {
-            signinBtn.disabled = false;
-            signinBtn.style.backgroundColor = "#007bff"; // blue
-            signinBtn.style.cursor = "pointer";
+          if (username === "771020486" && password === "Ramsundar486.") {
+            window.location.href = "dashboard.html"; // Redirect
           } else {
-            signinBtn.disabled = true;
-            signinBtn.style.backgroundColor = "#ccc";
-            signinBtn.style.cursor = "not-allowed";
+            alert("Invalid username or password!");
           }
-        }
+        });
+    });
+  </script>
+</body>
 
-        // Listen for input on both fields
-        usernameField.addEventListener("input", validateCredentials);
-        passwordField.addEventListener("input", validateCredentials);
-
-        // Submit logic
-        document
-          .querySelector(".login-form")
-          .addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const username = usernameField.value.trim();
-            const password = passwordField.value.trim();
-
-            if (username === "admin" && password === "Admin@123") {
-              window.location.href = "dashboard.html"; // Redirect
-            } else {
-              alert("Invalid username or password!");
-            }
-          });
-      });
-    </script>
-  </body>
 </html>
