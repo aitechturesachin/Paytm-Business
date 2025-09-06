@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options - Paytm</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #6c757d;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .paytm-logo {
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00baf2;
+            margin-top: -35px;
+        }
+
+        .payment-title {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            text-align: left;
+            padding: 0 20px;
+            padding-bottom: 20px;
+        }
+
+        .amount-highlight {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .payment-options {
+            padding: 0 20px 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
+            position: relative;
+        }
+
+        .payment-option:hover {
+            border-color: #00baf2;
+            background: #f8fdff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 186, 242, 0.1);
+        }
+
+        .payment-option:active {
+            transform: translateY(0);
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        /* .debit-card-icon {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+        } */
+/* 
+        .net-banking-icon {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        } */
+
+        /* .upi-icon {
+            background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+            color: white;
+        } */
+
+        .option-content {
+            flex: 1;
+        }
+
+        .option-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .option-subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .payment-logos {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo-badge {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .rupay-logo {
+            background: #00a0e6;
+            color: white;
+        }
+
+        .visa-logo {
+            background: #1a1f71;
+            color: white;
+        }
+
+        .mastercard-logo {
+            background: #eb001b;
+            color: white;
+        }
+
+        .paytm-logo-small {
+            background: #00baf2;
+            color: white;
+        }
+
+        .phonepe-logo {
+            background: #5f259f;
+            color: white;
+        }
+
+        .gpay-logo {
+            background: #4285f4;
+            color: white;
+        }
+
+        .more-text {
+            color: #6c757d;
+            font-size: 11px;
+        }
+
+        .arrow-icon {
+            width: 20px;
+            height: 20px;
+            color: #6c757d;
+            margin-left: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .payment-option:hover .arrow-icon {
+            transform: translateX(4px);
+            color: #00baf2;
+        }
+
+        /* Ripple effect */
+        .payment-option::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 186, 242, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+            pointer-events: none;
+        }
+
+        .payment-option:active::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Selected state */
+        .payment-option.selected {
+            border-color: #00baf2;
+            background: #f8fdff;
+            box-shadow: 0 4px 12px rgba(0, 186, 242, 0.15);
+        }
+
+        .payment-option.selected .arrow-icon {
+            color: #00baf2;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="company-name">MUTHOOT FINCORP LIMITED <spna style="color: #00baf2"> Paytm</spna>
+            </div>
+            <!-- <div class="paytm-logo">Paytm</div> -->
+        </div>
+
+        <div class="payment-title">
+            Select an option to pay <span class="amount-highlight">₹ 24749.47</span>
+        </div>
+
+        <div class="payment-options">
+            <!-- Debit Card Option -->
+            <div class="payment-option" onclick="selectPaymentOption(this, 'debit-card')">
+                <div class="option-icon debit-card-icon">
+                    <!-- <i class="fa-brands fa-cc-visa"></i> -->
+
+
+                    <img src="visa.png" alt="Visa Logo" style="width:45px; height:45px;">
+                </div>
+                <div class="option-content">
+                    <div class="option-title">Debit Card</div>
+                    <div class="option-subtitle">
+                        <div class="payment-logos">
+                            <span class="logo-badge rupay-logo">RuPay</span>
+                            <span class="logo-badge visa-logo">VISA</span>
+                            <span class="logo-badge mastercard-logo">MC</span>
+                            <span class="more-text">& more</span>
+                        </div>
+                    </div>
+                </div>
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" />
+                </svg>
+            </div>
+
+            <!-- Net Banking Option -->
+            <div class="payment-option" onclick="selectPaymentOption(this, 'net-banking')">
+                <div class="option-icon net-banking-icon"><img src="mobile-banking.png" alt="Net Banking Logo" style="width:40px; height:40px;"></div>
+                <div class="option-content">
+                    <div class="option-title">Net Banking</div>
+                    <div class="option-subtitle">All major banks supported</div>
+                </div>
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" />
+                </svg>
+            </div>
+
+            <!-- UPI Apps Option -->
+            <div class="payment-option" onclick="selectPaymentOption(this, 'upi-apps')">
+                <div class="option-icon upi-icon"><img src="smartphone.png" alt="UPI Logo" style="width:40px; height:40px;"></div>
+                <div class="option-content">
+                    <div class="option-title">Pay Using UPI Apps</div>
+                    <div class="option-subtitle">
+                        <div class="payment-logos">
+                            <span class="logo-badge paytm-logo-small">Paytm</span>
+                            <span class="logo-badge phonepe-logo">PhonePe</span>
+                            <span class="logo-badge gpay-logo">GPay</span>
+                            <span class="more-text">& more</span>
+                        </div>
+                    </div>
+                </div>
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedOption = null;
+
+        function selectPaymentOption(element, optionType) {
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            selectedOption = optionType;
+
+            // Add ripple effect
+            createRipple(element, event);
+
+            // Log selection
+            console.log('Selected payment option:', optionType);
+
+            // Add loading state to selected option
+            const optionTitle = element.querySelector('.option-title');
+            const originalText = optionTitle.textContent;
+            optionTitle.textContent = 'Loading...';
+
+            // Redirect after animation
+            setTimeout(() => {
+                window.location.href = `finalOptionToApp.html?method=${optionType}`;
+            }, 500);
+        }
+        function createRipple(element, event) {
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(0, 186, 242, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+                z-index: 1;
+            `;
+
+            // Add animation keyframes if not already added
+            if (!document.getElementById('ripple-styles')) {
+                const style = document.createElement('style');
+                style.id = 'ripple-styles';
+                style.textContent = `
+                    @keyframes ripple {
+                        to {
+                            transform: scale(2);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            element.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        function handlePaymentSelection(optionType) {
+            switch (optionType) {
+                case 'debit-card':
+                    console.log('Navigating to debit card payment...');
+                    alert('Redirecting to Debit Card payment page...');
+                    break;
+                case 'net-banking':
+                    console.log('Navigating to net banking...');
+                    alert('Redirecting to Net Banking page...');
+                    break;
+                case 'upi-apps':
+                    console.log('Navigating to UPI apps...');
+                    alert('Opening UPI payment options...');
+                    break;
+                default:
+                    console.log('Unknown payment option');
+            }
+        }
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function (event) {
+            const options = document.querySelectorAll('.payment-option');
+            const currentIndex = Array.from(options).findIndex(option => option.classList.contains('selected'));
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const nextIndex = (currentIndex + 1) % options.length;
+                options[nextIndex].click();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                const prevIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
+                options[prevIndex].click();
+            } else if (event.key === 'Enter' && currentIndex >= 0) {
+                event.preventDefault();
+                options[currentIndex].click();
+            }
+        });
+
+        // Add touch feedback for mobile
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('touchstart', function () {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            option.addEventListener('touchend', function () {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+
+</html>

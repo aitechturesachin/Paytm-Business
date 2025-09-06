@@ -42,7 +42,6 @@
           <div style="
                 width: 32px;
                 height: 32px;
-                background: linear-gradient(135deg, #007aff, #0051d5);
                 border-radius: 8px;
                 margin-right: 16px;
                 display: flex;
@@ -51,7 +50,7 @@
                 color: white;
                 font-weight: bold;
               ">
-            L
+            <img src="personal.png" alt="Paytm Logo" style="width:50px; height:50px;" />
           </div>
           <h1 style="
                 margin: 0;
@@ -63,7 +62,8 @@
           </h1>
         </div>
         <div style="display: flex; align-items: center; gap: 20px">
-          <button style="
+          <a href="/dashboard.html">
+            <button style="
                 background: transparent;
                 border: 1px solid #e5e5e5;
                 padding: 8px 16px;
@@ -71,8 +71,9 @@
                 color: #666;
                 cursor: pointer;
               ">
-            Dashboard
-          </button>
+              Dashboard
+            </button>
+          </a>
           <button style="
                 background: #007aff;
                 color: white;
@@ -81,7 +82,9 @@
                 border-radius: 6px;
                 font-weight: 500;
                 cursor: pointer;
-              ">
+              " onclick="payNow()"
+            onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0, 122, 255, 0.4)'"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 122, 255, 0.3)'">
             Pay Now
           </button>
         </div>
@@ -1483,7 +1486,7 @@
                       padding: 6px 12px;
                       border-radius: 8px;
                     ">
-                  ₹₹11389.49 Pending
+                  ₹11389.49 Pending
                 </div>
               </div>
 
@@ -2974,7 +2977,14 @@
     }
   </style>
 
+
   <script>
+    function payNow() {
+      setTimeout(() => {
+        window.location.href = "/emiCurrentPayment.html";
+      }, 800);
+    }
+
     function toggleDetails(elementId) {
       const details = document.getElementById(`details-${elementId}`);
       const arrow = document.getElementById(`arrow-${elementId}`);
@@ -2998,6 +3008,7 @@
     function toggleLoanDetails() {
       alert("Loan details modal would open here");
     }
+
 
     function payMore() {
       setTimeout(() => {
