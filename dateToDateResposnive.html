@@ -370,7 +370,7 @@
                 REMAINING
               </div>
               <div style="font-size: 20px; font-weight: 700; color: #d97706">
-                16 Months
+                15 Months
               </div>
             </div>
           </div>
@@ -1422,264 +1422,12 @@
             </div>
           </div>
 
-          <!-- Current Position Indicator    9 position included pending EMMI 7 also -->
-          <div style="
-                position: absolute;
-                left: 20px;
-                background: linear-gradient(135deg, #34c759, #28a745);
-                color: white;
-                padding: 8px 12px;
-                border-radius: 16px;
-                font-size: 11px;
-                font-weight: 600;
-                box-shadow: 0 3px 12px rgba(52, 199, 89, 0.4);
-                z-index: 3;
-                animation: pulse 2s infinite;
-              " id="current-indicator">
-            You are here
-          </div>
 
-          <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-                border: 1px solid #bae6fd;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.transform='translateX(4px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)'"
-            onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='none'">
-            <div style="position: relative; z-index: 2; margin-right: 24px">
-              <div style="
-                    width: 18px;
-                    height: 18px;
-                    background: radial-gradient(circle, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 0 0 3px #34c759,
-                      0 3px 12px rgba(52, 199, 89, 0.4);
-                    animation: glow 2s ease-in-out infinite alternate;
-                  "></div>
-            </div>
-            <div style="flex: 1">
-              <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 20px;
-                  ">
-                <div>
-                  <div style="
-                        font-weight: 700;
-                        color: #1a1a1a;
-                        margin-bottom: 4px;
-                        font-size: 18px;
-                      ">
-                    Month 9
-                  </div>
-                  <div style="font-size: 13px; color: #6b7280; font-weight: 500">
-                    2th Oct 2025
-                  </div>
-                </div>
-                <div style="
-                      font-weight: 700;
-                      font-size: 18px;
-                      color: #d97706;
-                      background: linear-gradient(135deg, #fff7ed, #fef3c7);
-                      padding: 6px 12px;
-                      border-radius: 8px;
-                    ">
-                  ₹11389.49 Pending
-                </div>
-              </div>
 
-              Expandable Details
-              <div style="
-                    background: rgba(255, 255, 255, 0.9);
-                    backdrop-filter: blur(10px);
-                    border-radius: 12px;
-                    padding: 20px;
-                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                  ">
-                <div style="
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: center;
-                      cursor: pointer;
-                      padding: 6px 0;
-                      transition: all 0.2s ease;
-                    " onclick="toggleDetails('day100-dues')"
-                  onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                  onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                  <span style="font-weight: 600; color: #374151; font-size: 16px">Dues</span>
-                  <div style="display: flex; align-items: center; gap: 10px">
-                    <span style="
-                          font-weight: 700;
-                          color: #1f2937;
-                          font-size: 16px;
-                        ">₹24749.47</span>
-                    <span id="arrow-day100-dues" style="
-                          font-size: 12px;
-                          color: #6b7280;
-                          transition: transform 0.3s ease;
-                          transform: rotate(180deg);
-                        ">▼</span>
-                  </div>
-                </div>
 
-                <div id="details-day100-dues" style="
-                      display: block;
-                      margin-top: 16px;
-                      animation: fadeIn 0.3s ease;
-                    ">
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(248, 250, 252, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">
-                      Installment Due</span>
-                    <span style="font-weight: 600; color: #374151">₹11389.49</span>
-                  </div>
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(220, 38, 38, 0.15);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #dc2626; font-size: 14px">Charges</span>
-                    <span style="font-weight: 600; color: #dc2626">₹1970.49</span>
-                  </div>
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 16px;
-                        padding: 8px 16px;
-                        background: rgba(248, 250, 252, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">Previous Dues</span>
-                    <span style="font-weight: 600; color: #374151">₹13359.98</span>
-                  </div>
 
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
 
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        cursor: pointer;
-                        padding: 6px 0;
-                        transition: all 0.2s ease;
-                        margin-bottom: 16px;
-                      " onclick="toggleDetails('day100-repayments')"
-                    onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                    onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Repayments</span>
-                    <div style="display: flex; align-items: center; gap: 10px">
-                      <span style="
-                            font-weight: 700;
-                              color: #d97706;
-                            font-size: 16px;
-                          ">₹11389.49</span>
-                      <span id="arrow-day100-repayments" style="
-                            font-size: 12px;
-                            color: #6b7280;
-                            transition: transform 0.3s ease;
-                            transform: rotate(180deg);
-                          ">▼</span>
-                    </div>
-                  </div>
 
-                  <div id="details-day100-repayments" style="display: block; margin-bottom: 16px">
-                    <div style="
-                          display: flex;
-                          justify-content: space-between;
-                          margin-bottom: 10px;
-                          padding: 8px 16px;
-                          background: linear-gradient(135deg, #fff7ed, #fef3c7);
-                          border-radius: 6px;
-                          border-left: 3px solid #d97706;
-                        ">
-                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
-                      <span style="font-weight: 600; color: #d97706">₹11389.49</span>
-                    </div>
-                    <div style="
-                          display: flex;
-                          justify-content: space-between;
-                          margin-bottom: 0;
-                          padding: 8px 16px;
-
-                          background: linear-gradient(135deg, #fff7ed, #fef3c7);
-
-                          border-radius: 6px;
-                          border-left: 3px solid #d97706;
-                        ">
-                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
-                      <span style="font-weight: 600; color: #d97706">₹11389.49</span>
-                    </div>
-                  </div>
-
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 12px 16px;
-
-                          background: linear-gradient(135deg, #fff7ed, #fef3c7);
-
-                        border-radius: 8px;
-                        border: 1px solid rgba(16, 185, 129, 0.2);
-                      ">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Dues Remaining</span>
-                    <span style="
-                          font-weight: 700;
-                          color: #d97706;
-                          font-size: 16px;
-                          background: linear-gradient(135deg, #fff7ed, #fef3c7);
-                          padding: 4px 8px;
-                          border-radius: 6px;
-                        ">₹0</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- Month 9 - Paid -->
           <!-- <div style="
@@ -2083,6 +1831,73 @@
             </div>
           </div> -->
 
+
+          <!-- Month 9 - Current -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 9
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Oct 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Month 8 - Current -->
           <div style="
                 display: flex;
@@ -2148,7 +1963,10 @@
             </div>
           </div>
 
-          <!-- Month 7 - Overdue with Full Details -->
+
+
+
+          <!-- Month 7 - Current -->
           <div style="
                 display: flex;
                 align-items: flex-start;
@@ -2156,20 +1974,18 @@
                 position: relative;
                 padding: 16px;
                 border-radius: 12px;
-                border: 1px solid #f59e0b;
                 transition: all 0.3s ease;
-              " onmouseover="this.style.transform='translateX(4px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)'"
-            onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='none'">
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
             <div style="position: relative; z-index: 2; margin-right: 24px">
               <div style="
-                    width: 18px;
-                    height: 18px;
-                    background: radial-gradient(circle, #f59e0b, #d97706);
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
                     border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 0 0 3px #f59e0b,
-                      0 3px 12px rgba(245, 158, 11, 0.4);
-                    animation: warning-pulse 1.5s ease-in-out infinite;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
                   "></div>
             </div>
             <div style="flex: 1">
@@ -2177,191 +1993,46 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-bottom: 20px;
                   ">
                 <div>
                   <div style="
-                        font-weight: 700;
-                        color: #1a1a1a;
+                        font-weight: 600;
+                        color: #374151;
                         margin-bottom: 4px;
-                        font-size: 18px;
+                        font-size: 16px;
                       ">
                     Month 7
                   </div>
-                  <div style="font-size: 13px; color: #6b7280; font-weight: 500">
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
                     2th Aug 2025
                   </div>
                 </div>
                 <div style="
-                      font-weight: 700;
-                      color: #dc2626;
-                      font-size: 18px;
-                      background: rgba(220, 38, 38, 0.15);
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
                       padding: 6px 12px;
-                      border-radius: 8px;
-                    ">
-                  ₹0 paid
-                </div>
-              </div>
-
-              <!-- Expandable Details for Month 7 -->
-              <div style="
-                    background: rgba(255, 255, 255, 0.9);
-                    backdrop-filter: blur(10px);
-                    border-radius: 12px;
-                    padding: 20px;
-                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                  ">
-                <div style="
+                      border-radius: 6px;
+                      font-size: 16px;
                       display: flex;
-                      justify-content: space-between;
                       align-items: center;
-                      cursor: pointer;
-                      padding: 6px 0;
-                      transition: all 0.2s ease;
-                    " onclick="toggleDetails('day99-dues')"
-                  onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                  onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                  <span style="font-weight: 600; color: #374151; font-size: 16px">Dues</span>
-                  <div style="display: flex; align-items: center; gap: 10px">
-                    <span style="
-                          font-weight: 700;
-                          color: #dc2626;
-                          font-size: 16px;
-                        ">₹11389.49</span>
-                    <span id="arrow-day99-dues" style="
-                          font-size: 12px;
-                          color: #6b7280;
-                          transition: transform 0.3s ease;
-                          transform: rotate(0deg);
-                        ">▼</span>
-                  </div>
-                </div>
-
-                <div id="details-day99-dues" style="
-                      display: none;
-                      margin-top: 16px;
-                      animation: fadeIn 0.3s ease;
                     ">
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(254, 226, 226, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">Installment Due</span>
-                    <span style="font-weight: 600; color: #dc2626">₹11389.49</span>
-                  </div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(254, 226, 226, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">Charges</span>
-                    <span style="font-weight: 600; color: #dc2626">₹970.49</span>
-                  </div>
-
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
                         cursor: pointer;
-                        padding: 6px 0;
-                        transition: all 0.2s ease;
-                        margin-bottom: 16px;
-                      " onclick="toggleDetails('day99-repayments')"
-                    onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                    onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Repayments</span>
-                    <div style="display: flex; align-items: center; gap: 10px">
-                      <span style="
-                            font-weight: 700;
-                            color: #dc2626;
-                            font-size: 16px;
-                          ">₹0</span>
-                      <span id="arrow-day99-repayments" style="
-                            font-size: 12px;
-                            color: #6b7280;
-                            transition: transform 0.3s ease;
-                            transform: rotate(0deg);
-                          ">▼</span>
-                    </div>
-                  </div>
-
-                  <div id="details-day99-repayments" style="display: none; margin-bottom: 16px">
-                    <div style="
-                          display: flex;
-                          justify-content: center;
-                          align-items: center;
-                          padding: 20px;
-                          background: rgba(248, 250, 252, 0.8);
-                          border-radius: 6px;
-                          color: #6b7280;
-                          font-style: italic;
-                        ">
-                      No payments made
-                    </div>
-                  </div>
-
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 12px 16px;
-                        background: rgba(254, 226, 226, 0.6);
-                        border-radius: 8px;
-                        border: 1px solid rgba(220, 38, 38, 0.2);
-                      ">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Dues Remaining</span>
-                    <span style="
-                          font-weight: 700;
-                          color: #dc2626;
-                          font-size: 16px;
-                          background: rgba(220, 38, 38, 0.15);
-                          padding: 4px 8px;
-                          border-radius: 6px;
-                        ">12359.98</span>
-                  </div>
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
                 </div>
               </div>
             </div>
           </div>
+
+
+
 
           <!-- Month 6 - Current -->
           <div style="
