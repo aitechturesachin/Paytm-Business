@@ -433,20 +433,7 @@
               overflow-y: auto;
             " id="timeline-container">
           <!-- Timeline Line -->
-          <div style="
-                position: absolute;
-                left: 56px;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: linear-gradient(
-                  to bottom,
-                  #34c759 0%,
-                  #e0e0e0 15%,
-                  #e0e0e0 100%
-                );
-                border-radius: 1px;
-              "></div>
+
 
           <!-- Loan Completion -->
           <!-- <div
@@ -1292,72 +1279,7 @@
             </div>
           </div>
 
-          <!-- Month 11 - Paid -->
-          <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-            <div style="position: relative; z-index: 2; margin-right: 24px">
-              <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.8;
-                  "></div>
-            </div>
-            <div style="flex: 1">
-              <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-                <div>
-                  <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                    Month 11
-                  </div>
-                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                    2th Dec 2025
-                  </div>
-                </div>
-                <div style="
-                      font-weight: 600;
-                      color: #d97706;
-                      background: linear-gradient(135deg, #fff7ed, #fef3c7);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                  ₹11389.49 pending
-                  <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                    onmouseout="this.style.transform='scale(1)'">▼</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Current Position Indicator    9 position included pending EMMI 7 also -->
+          <!-- Current Position Indicator 11 position included pending EMMI 10 also -->
           <div style="
                 position: absolute;
                 left: 20px;
@@ -1412,10 +1334,10 @@
                         margin-bottom: 4px;
                         font-size: 18px;
                       ">
-                    Month 10
+                    Month 11
                   </div>
                   <div style="font-size: 13px; color: #6b7280; font-weight: 500">
-                    2th Nov 2025
+                    2th Dec 2025
                   </div>
                 </div>
                 <div style="
@@ -1449,13 +1371,13 @@
                     " onclick="toggleDetails('day100-dues')"
                   onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
                   onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                  <span style="font-weight: 600; color: #374151; font-size: 16px">Dues</span>
+                  <span style="font-weight: 600; color: #374151; font-size: 16px">Total Dues</span>
                   <div style="display: flex; align-items: center; gap: 10px">
                     <span style="
                           font-weight: 700;
                           color: #1f2937;
                           font-size: 16px;
-                        ">₹11389.49</span>
+                        ">₹24749.47</span>
                     <span id="arrow-day100-dues" style="
                           font-size: 12px;
                           color: #6b7280;
@@ -1482,7 +1404,28 @@
                       Installment Due</span>
                     <span style="font-weight: 600; color: #374151">₹11389.49</span>
                   </div>
-
+                  <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 12px;
+                        padding: 8px 16px;
+                        background: rgba(220, 38, 38, 0.15);
+                        border-radius: 6px;
+                      ">
+                    <span style="color: #dc2626; font-size: 14px">Charges</span>
+                    <span style="font-weight: 600; color: #dc2626">₹1970.49</span>
+                  </div>
+                  <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 16px;
+                        padding: 8px 16px;
+                        background: rgba(248, 250, 252, 0.8);
+                        border-radius: 6px;
+                      ">
+                    <span style="color: #6b7280; font-size: 14px">Previous Dues</span>
+                    <span style="font-weight: 600; color: #374151">₹13359.98</span>
+                  </div>
 
                   <div style="
                         height: 1px;
@@ -1526,8 +1469,20 @@
                     </div>
                   </div>
 
-
-                  <div style="
+                  <div id="details-day100-repayments" style="display: block; margin-bottom: 16px">
+                    <div style="
+                          display: flex;
+                          justify-content: space-between;
+                          margin-bottom: 10px;
+                          padding: 8px 16px;
+                          background: linear-gradient(135deg, #fff7ed, #fef3c7);
+                          border-radius: 6px;
+                          border-left: 3px solid #d97706;
+                        ">
+                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
+                      <span style="font-weight: 600; color: #d97706">₹11389.49</span>
+                    </div>
+                    <div style="
                           display: flex;
                           justify-content: space-between;
                           margin-bottom: 0;
@@ -1538,12 +1493,12 @@
                           border-radius: 6px;
                           border-left: 3px solid #d97706;
                         ">
-                    <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
-                    <span style="font-weight: 600; color: #d97706">₹11389.49</span>
+                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
+                      <span style="font-weight: 600; color: #d97706">₹11389.49</span>
+                    </div>
                   </div>
-                </div>
 
-                <div style="
+                  <div style="
                         height: 1px;
                         background: linear-gradient(
                           to right,
@@ -1554,7 +1509,7 @@
                         margin: 16px 0;
                       "></div>
 
-                <div style="
+                  <div style="
                         display: flex;
                         justify-content: space-between;
                         padding: 12px 16px;
@@ -1564,26 +1519,28 @@
                         border-radius: 8px;
                         border: 1px solid rgba(16, 185, 129, 0.2);
                       ">
-                  <span style="
+                    <span style="
                           font-weight: 600;
                           color: #374151;
                           font-size: 16px;
                         ">Dues Remaining</span>
-                  <span style="
+                    <span style="
                           font-weight: 700;
                           color: #d97706;
                           font-size: 16px;
                           background: linear-gradient(135deg, #fff7ed, #fef3c7);
                           padding: 4px 8px;
                           border-radius: 6px;
-                        ">₹₹11389.49</span>
+                        ">₹0</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Month 10 - Paid -->
-        <!-- <div style="
+
+
+          <!-- Month 10 - Paid -->
+          <div style="
                 display: flex;
                 align-items: flex-start;
                 margin-bottom: 40px;
@@ -1645,11 +1602,349 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
 
-        <!-- Month 9 - Paid -->
-        <!-- <div style="
+
+
+
+
+          <!-- Month 9 - Current -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 9
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Oct 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- Month 8 - Current -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 8
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Sep 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- Month 7 - Current -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 7
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Aug 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- Month 6 - Current -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 6
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th July 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Month 5 - Paid -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.9;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 5
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th June 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Month 4 - Paid -->
+          <div style="
                 display: flex;
                 align-items: flex-start;
                 margin-bottom: 40px;
@@ -1683,23 +1978,23 @@
                         margin-bottom: 4px;
                         font-size: 16px;
                       ">
-                    Month 9
+                    Month 4
                   </div>
                   <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                    2th Oct 2025
+                    2th May 2025
                   </div>
                 </div>
                 <div style="
                       font-weight: 600;
-                      color: #d97706;
-                      background: linear-gradient(135deg, #fff7ed, #fef3c7);
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
                       padding: 6px 12px;
                       border-radius: 6px;
                       font-size: 16px;
                       display: flex;
                       align-items: center;
                     ">
-                  ₹11389.49 pending
+                  ₹11389.49 paid
                   <span style="
                         margin-left: 12px;
                         font-size: 12px;
@@ -1711,10 +2006,10 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
-        <!-- Month 8 - Paid -->
-        <!-- <div style="
+          <!-- Month 3- Paid -->
+          <div style="
                 display: flex;
                 align-items: flex-start;
                 margin-bottom: 40px;
@@ -1723,9 +2018,9 @@
                 border-radius: 12px;
                 transition: all 0.3s ease;
               " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
                     width: 16px;
                     height: 16px;
                     background: linear-gradient(135deg, #34c759, #28a745);
@@ -1733,90 +2028,6 @@
                     border: 2px solid white;
                     box-shadow: 0 0 0 2px #34c759;
                     opacity: 0.8;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 8
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Sep 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Current Position Indicator -->
-        <!-- <div style="
-                position: absolute;
-                left: 20px;
-                background: linear-gradient(135deg, #34c759, #28a745);
-                color: white;
-                padding: 8px 12px;
-                border-radius: 16px;
-                font-size: 11px;
-                font-weight: 600;
-                box-shadow: 0 3px 12px rgba(52, 199, 89, 0.4);
-                z-index: 3;
-                animation: pulse 2s infinite;
-              " id="current-indicator">
-            You are here
-          </div> -->
-
-        <!-- <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-                border: 1px solid #bae6fd;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.transform='translateX(4px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)'"
-            onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='none'">
-            <div style="position: relative; z-index: 2; margin-right: 24px">
-              <div style="
-                    width: 18px;
-                    height: 18px;
-                    background: radial-gradient(circle, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 0 0 3px #34c759,
-                      0 3px 12px rgba(52, 199, 89, 0.4);
-                    animation: glow 2s ease-in-out infinite alternate;
                   "></div>
             </div>
             <div style="flex: 1">
@@ -1824,258 +2035,21 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-bottom: 20px;
                   ">
                 <div>
                   <div style="
-                        font-weight: 700;
-                        color: #1a1a1a;
-                        margin-bottom: 4px;
-                        font-size: 18px;
-                      ">
-                    Month 8
-                  </div>
-                  <div style="font-size: 13px; color: #6b7280; font-weight: 500">
-                    2th Sep 2025
-                  </div>
-                </div>
-                <div style="
-                      font-weight: 700;
-                      font-size: 18px;
-                      color: #d97706;
-                      background: linear-gradient(135deg, #fff7ed, #fef3c7);
-                      padding: 6px 12px;
-                      border-radius: 8px;
-                    ">
-                  ₹23449.47 Pending
-                </div>
-              </div>
-
-              Expandable Details
-              <div style="
-                    background: rgba(255, 255, 255, 0.9);
-                    backdrop-filter: blur(10px);
-                    border-radius: 12px;
-                    padding: 20px;
-                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                  ">
-                <div style="
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: center;
-                      cursor: pointer;
-                      padding: 6px 0;
-                      transition: all 0.2s ease;
-                    " onclick="toggleDetails('day100-dues')"
-                  onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                  onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                  <span style="font-weight: 600; color: #374151; font-size: 16px">Dues</span>
-                  <div style="display: flex; align-items: center; gap: 10px">
-                    <span style="
-                          font-weight: 700;
-                          color: #1f2937;
-                          font-size: 16px;
-                        ">₹23749.47</span>
-                    <span id="arrow-day100-dues" style="
-                          font-size: 12px;
-                          color: #6b7280;
-                          transition: transform 0.3s ease;
-                          transform: rotate(180deg);
-                        ">▼</span>
-                  </div>
-                </div>
-
-                <div id="details-day100-dues" style="
-                      display: block;
-                      margin-top: 16px;
-                      animation: fadeIn 0.3s ease;
-                    ">
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(248, 250, 252, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">Installment Due</span>
-                    <span style="font-weight: 600; color: #374151">₹11389.49</span>
-                  </div>
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 12px;
-                        padding: 8px 16px;
-                        background: rgba(220, 38, 38, 0.15);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #dc2626; font-size: 14px">Charges</span>
-                    <span style="font-weight: 600; color: #dc2626">₹970.49</span>
-                  </div>
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        margin-bottom: 16px;
-                        padding: 8px 16px;
-                        background: rgba(248, 250, 252, 0.8);
-                        border-radius: 6px;
-                      ">
-                    <span style="color: #6b7280; font-size: 14px">Previous Dues</span>
-                    <span style="font-weight: 600; color: #374151">₹12359.98</span>
-                  </div>
-
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        cursor: pointer;
-                        padding: 6px 0;
-                        transition: all 0.2s ease;
-                        margin-bottom: 16px;
-                      " onclick="toggleDetails('day100-repayments')"
-                    onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.borderRadius='8px'; this.style.padding='6px 8px'"
-                    onmouseout="this.style.backgroundColor='transparent'; this.style.padding='6px 0'">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Repayments</span>
-                    <div style="display: flex; align-items: center; gap: 10px">
-                      <span style="
-                            font-weight: 700;
-                            color: #059669;
-                            font-size: 16px;
-                          ">₹11389.49</span>
-                      <span id="arrow-day100-repayments" style="
-                            font-size: 12px;
-                            color: #6b7280;
-                            transition: transform 0.3s ease;
-                            transform: rotate(180deg);
-                          ">▼</span>
-                    </div>
-                  </div>
-
-                  <div id="details-day100-repayments" style="display: block; margin-bottom: 16px">
-                    <div style="
-                          display: flex;
-                          justify-content: space-between;
-                          margin-bottom: 10px;
-                          padding: 8px 16px;
-                          background: rgba(236, 253, 245, 0.8);
-                          border-radius: 6px;
-                          border-left: 3px solid #10b981;
-                        ">
-                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
-                      <span style="font-weight: 600; color: #059669">₹11389.49</span>
-                    </div>
-                    <div style="
-                          display: flex;
-                          justify-content: space-between;
-                          margin-bottom: 0;
-                          padding: 8px 16px;
-                          background: rgba(236, 253, 245, 0.8);
-                          border-radius: 6px;
-                          border-left: 3px solid #10b981;
-                        ">
-                      <span style="color: #6b7280; font-size: 14px">Automatic Payment</span>
-                      <span style="font-weight: 600; color: #059669">₹11389.49</span>
-                    </div>
-                  </div>
-
-                  <div style="
-                        height: 1px;
-                        background: linear-gradient(
-                          to right,
-                          transparent,
-                          #e5e7eb,
-                          transparent
-                        );
-                        margin: 16px 0;
-                      "></div>
-
-                  <div style="
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 12px 16px;
-                        background: rgba(236, 253, 245, 0.6);
-                        border-radius: 8px;
-                        border: 1px solid rgba(16, 185, 129, 0.2);
-                      ">
-                    <span style="
-                          font-weight: 600;
-                          color: #374151;
-                          font-size: 16px;
-                        ">Dues Remaining</span>
-                    <span style="
-                          font-weight: 700;
-                          color: #059669;
-                          font-size: 16px;
-                          background: rgba(16, 185, 129, 0.15);
-                          padding: 4px 8px;
-                          border-radius: 6px;
-                        ">₹0</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-
-
-        <!-- Month 9 - Current -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.9;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
                         font-weight: 600;
                         color: #374151;
                         margin-bottom: 4px;
                         font-size: 16px;
                       ">
-                  Month 9
+                    Month 3
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Apr 2025
+                  </div>
                 </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Oct 2025
-                </div>
-              </div>
-              <div style="
+                <div style="
                       font-weight: 600;
                       color: #059669;
                       background: rgba(16, 185, 129, 0.1);
@@ -2085,574 +2059,175 @@
                       display: flex;
                       align-items: center;
                     ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <!-- Month 8 - Current -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.9;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 8
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Sep 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <!-- Month 7 - Current -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.9;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 7
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Aug 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <!-- Month 6 - Current -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.9;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 6
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th July 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Month 5 - Paid -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.9;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 5
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th June 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day98')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Month 4 - Paid -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.8;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 4
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th May 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
+                  ₹11389.49 paid
+                  <span style="
                         margin-left: 12px;
                         font-size: 12px;
                         color: #666;
                         cursor: pointer;
                         transition: transform 0.2s;
                       " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Month 3- Paid -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.8;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 3
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Apr 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Month 2 - Paid -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.8;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 2
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Mar 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Month 1 - Paid -->
-        <div style="
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                position: relative;
-                padding: 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
-          <div style="position: relative; z-index: 2; margin-right: 24px">
-            <div style="
-                    width: 16px;
-                    height: 16px;
-                    background: linear-gradient(135deg, #34c759, #28a745);
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 0 0 2px #34c759;
-                    opacity: 0.8;
-                  "></div>
-          </div>
-          <div style="flex: 1">
-            <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  ">
-              <div>
-                <div style="
-                        font-weight: 600;
-                        color: #374151;
-                        margin-bottom: 4px;
-                        font-size: 16px;
-                      ">
-                  Month 1
-                </div>
-                <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
-                  2th Feb 2025
-                </div>
-              </div>
-              <div style="
-                      font-weight: 600;
-                      color: #059669;
-                      background: rgba(16, 185, 129, 0.1);
-                      padding: 6px 12px;
-                      border-radius: 6px;
-                      font-size: 16px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                ₹11389.49 paid
-                <span style="
-                        margin-left: 12px;
-                        font-size: 12px;
-                        color: #666;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
-                  onmouseout="this.style.transform='scale(1)'">▼</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Additional Days for Desktop -->
-        <div id="additional-days" style="opacity: 0.8">
-          <!-- Day 96-90 would continue here in similar format -->
+          <!-- Month 2 - Paid -->
           <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.8;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 2
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Mar 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Month 1 - Paid -->
+          <div style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                position: relative;
+                padding: 16px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+              " onmouseover="this.style.backgroundColor='rgba(0,0,0,0.02)'; this.style.transform='translateX(2px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="position: relative; z-index: 2; margin-right: 24px">
+              <div style="
+                    width: 16px;
+                    height: 16px;
+                    background: linear-gradient(135deg, #34c759, #28a745);
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 0 0 2px #34c759;
+                    opacity: 0.8;
+                  "></div>
+            </div>
+            <div style="flex: 1">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <div>
+                  <div style="
+                        font-weight: 600;
+                        color: #374151;
+                        margin-bottom: 4px;
+                        font-size: 16px;
+                      ">
+                    Month 1
+                  </div>
+                  <div style="font-size: 12px; color: #9ca3af; font-weight: 500">
+                    2th Feb 2025
+                  </div>
+                </div>
+                <div style="
+                      font-weight: 600;
+                      color: #059669;
+                      background: rgba(16, 185, 129, 0.1);
+                      padding: 6px 12px;
+                      border-radius: 6px;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                  ₹11389.49 paid
+                  <span style="
+                        margin-left: 12px;
+                        font-size: 12px;
+                        color: #666;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                      " onclick="toggleDayDetails('day97')" onmouseover="this.style.transform='scale(1.2)'"
+                    onmouseout="this.style.transform='scale(1)'">▼</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Days for Desktop -->
+          <div id="additional-days" style="opacity: 0.8">
+            <!-- Day 96-90 would continue here in similar format -->
+            <div style="
                   text-align: center;
                   padding: 40px 0;
                   color: #9ca3af;
                   font-style: italic;
                 ">
-            <div style="
+              <div style="
                     width: 40px;
                     height: 2px;
                     background: linear-gradient(to right, #e5e7eb, transparent);
                     margin: 0 auto 10px;
                   "></div>
-            Previous payments continue...
-            <div style="
+              Previous payments continue...
+              <div style="
                     width: 40px;
                     height: 2px;
                     background: linear-gradient(to left, #e5e7eb, transparent);
                     margin: 10px auto 0;
                   "></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <style>

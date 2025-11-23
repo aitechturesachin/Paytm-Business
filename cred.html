@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Repayment Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            padding: 20px 24px;
+        }
+
+        .header {
+            margin-bottom: 8px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #8e8e8e;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .emi-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .emi-item:last-child {
+            border-bottom: none;
+        }
+
+        .emi-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .emi-date {
+            font-size: 15px;
+            color: #6b6b6b;
+            font-weight: 400;
+        }
+
+        .emi-status {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .overdue {
+            color: rgb(177, 3, 3);
+        }
+
+        .paid {
+            color: #00c48c;
+        }
+
+        .due {
+            color: #ff9500;
+        }
+
+        .emi-amount {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .info-box {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid #d0d0d0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+            color: #6b6b6b;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #8e8e8e;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EMI repayment schedule</h1>
+            <p class="subtitle">paying EMIs on time improves your credit score</p>
+        </div>
+
+        <div class="emi-list">
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 nov '25</span>
+                    <span class="emi-status overdue">Overdue <span class="due" style="font-size: 12px;">charges applied
+                            +
+                            ₹810</span></span>
+
+                </div>
+                <div class="emi-amount">₹5,931</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 dec '25</span>
+                    <span class="emi-status due">due in 9 days</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 jan '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 feb '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 mar '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 apr '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 may '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 jun '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 jul '26</span>
+                </div>
+                <div class="emi-amount">₹5,121</div>
+            </div>
+
+            <div class="emi-item">
+                <div class="emi-left">
+                    <span class="emi-date">02 aug '26</span>
+                </div>
+                <div class="emi-amount">₹5,118.34</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-icon">₹</div>
+            <div class="info-text">
+                your last EMI is slightly different due to daily method of interest calculation & difference in days
+                between withdrawal date & first EMI date.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
